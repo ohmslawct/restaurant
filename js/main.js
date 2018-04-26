@@ -1,4 +1,6 @@
 
+
+
 function findStylesheetsInImportedDocs(doc, map) {
     map = map || {};
     // map = map || new Map();
@@ -34,6 +36,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
 });
+
+
+
+
+
 
 /**
  * Fetch all neighborhoods and set their HTML.
@@ -154,13 +161,13 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
    ul.append(createRestaurantHTML(restaurant));
 
 
-   const newDiv = document.createElement('div');
-   newDiv.className = 'myRestaurantDiv';
 
-  ul.parentNode.append(newDiv);
 
-  // ul.append(newDiv);
 
+  // const newDiv = document.createElement('div');
+  // newDiv.className = 'myRestaurantDiv';
+
+//  const bruce = document.querySelector('#bruce');
   });
   addMarkersToMap();
 }
@@ -172,10 +179,7 @@ createRestaurantHTML = (restaurant) => {
 
 
 
-
-
-
-  const li = document.createElement('li');
+  const li = document.createElement('div');
 
   console.log(li);
 
@@ -201,8 +205,9 @@ createRestaurantHTML = (restaurant) => {
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
+  li.className = 'restaurant-box';
 
-
+  //$("li").wrap( "<div class='myRestaurantDiv'></div>" );
 
 
   return li;
@@ -221,3 +226,4 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 }
+console.log("here");

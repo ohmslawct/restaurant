@@ -6,13 +6,15 @@
   <link rel="stylesheet" href="css/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restaurant Reviews</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 </head>
 
+
+
 <body>
-
-
-
-
+<div class="flex-box">
 
   <header>
     <nav>
@@ -29,7 +31,13 @@
 
 
 
-    <section>
+
+
+
+
+
+<section>
+
       <div class="filter-options">
         <h2>Filter Results</h2>
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
@@ -38,21 +46,40 @@
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
-      </div>
 
-          <div class ="mycontainer"> <!-- main container -->
+    </div>
+</section>
 
-       <div>
-      <ul id="restaurants-list"></ul>
-    </div> 
 
-    </section>
+
+           <!-- <div class ="mycontainer"> main container -->
+
+
+
+
+
+
+
   </main>
+
+
+  <div class="restaurants-list">
+
+        <ul id="restaurants-list"></ul>
+
+  </div>
 
 
   <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
+
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6TOoFFWLCE3EE4NQJdMz1FcgdCLaIAik&libraries=places&callback=initMap"></script>
+
+
+
+
+
+
 
 
   <footer id="footer">
@@ -61,7 +88,8 @@
 
 
 
-</div> <!-- main container -->
+ <!-- </div>main container -->
+</div>
 </body>
 
 </html>

@@ -2,6 +2,18 @@
 /* CSS Document */
 
 
+.flex-box {
+
+	display : block;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width : 100%;
+
+
+}
+
 
 body,td,th,p{
 	font-family: Arial, Helvetica, sans-serif;
@@ -43,12 +55,60 @@ img, embed, object, video {
 
 
 
-.container {
-  display : flex;
-  flex-wrap: wrap;
+.restaurants-list {
+
+	display : inline-block;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width : 100%;
+
 	align-content: center;
 	background-color : red;
+	width : 100%;
+
+
+
 }
+
+.restaurant-box {
+	display : inline-block;
+	flex-wrap: wrap;
+	align-content: center;
+
+	width : 100%;
+
+	background-color: #fff;
+	border: 2px solid #ccc;
+	font-family: Arial,sans-serif;
+	margin: 15px;
+	min-height: 380px;
+	padding: 0 30px 25px;
+	text-align: left;
+	max-width: 270px;
+
+}
+
+
+
+
+#restaurants-list li{
+  background-color: #fff;
+  border: 2px solid #ccc;
+  font-family: Arial,sans-serif;
+  margin: 15px;
+  min-height: 380px;
+  padding: 0 30px 25px;
+  text-align: left;
+  max-width: 270px;
+}
+
+
+
+
+
+
 
 
 
@@ -57,6 +117,7 @@ img, embed, object, video {
 h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 0 20px;
+	width : 100%
 }
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: flex;
@@ -144,6 +205,8 @@ nav h1 a {
   font-weight: normal;
   line-height: 1;
   margin: 0 20px;
+	width : 100%
+
 }
 .filter-options select {
   background-color: white;
@@ -165,7 +228,7 @@ nav h1 a {
   padding: 30px 15px 60px;
   text-align: center;
 }
-#restaurants-list li {
+#restaurants-list li{
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
@@ -293,6 +356,7 @@ nav h1 a {
   font-weight: 300;
   letter-spacing: -1px;
   padding-bottom: 1pt;
+		width : 100%
 }
 #reviews-list {
   margin: 0;
