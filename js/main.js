@@ -1,3 +1,26 @@
+
+function findStylesheetsInImportedDocs(doc, map) {
+    map = map || {};
+    // map = map || new Map();
+    Array.prototype.forEach.call(doc.querySelectorAll('link[rel=import]'), (e) => {
+        const importedDoc = e.import;
+        if (importedDoc && !map[importedDoc]) {
+            const styles = importedDoc.querySelectorAll('style,link[rel=stylesheet]');
+            if (styles.length) {
+                map[importedDoc.URL] = {
+                    doc: importedDoc,
+                    styles: styles
+                };
+                // map.set(importedDoc, styles);
+            }
+            findStylesheetsInImportedDocs(importedDoc, map)
+        }
+    });
+    return map;
+}
+console.log(findStylesheetsInImportedDocs(document));
+
+
 let restaurants,
   neighborhoods,
   cuisines
@@ -125,9 +148,19 @@ resetRestaurants = (restaurants) => {
  * Create all restaurants HTML and add them to the webpage.
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
+  console.log("Filling Restaurant");
   const ul = document.getElementById('restaurants-list');
   restaurants.forEach(restaurant => {
-    ul.append(createRestaurantHTML(restaurant));
+   ul.append(createRestaurantHTML(restaurant));
+
+
+   const newDiv = document.createElement('div');
+   newDiv.className = 'myRestaurantDiv';
+
+  ul.parentNode.append(newDiv);
+
+  // ul.append(newDiv);
+
   });
   addMarkersToMap();
 }
@@ -136,7 +169,15 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  * Create restaurant HTML.
  */
 createRestaurantHTML = (restaurant) => {
+
+
+
+
+
+
   const li = document.createElement('li');
+
+  console.log(li);
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
@@ -160,7 +201,11 @@ createRestaurantHTML = (restaurant) => {
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
-  return li
+
+
+
+
+  return li;
 }
 
 /**
