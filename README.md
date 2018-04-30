@@ -1,4 +1,4 @@
-# Restaruant Reviews Page
+# Restaurant Reviews Page
 ##### A Udacity Student Project by Bruce Seymour
 ## Table of Contents
 
