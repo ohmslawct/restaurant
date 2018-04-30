@@ -10,7 +10,7 @@
 Restaurant Reviews is an HTML5 page which shows a google maps and restaurant information.  This is simple page created with HTML, CSS and JAVASCRIPT.  It was created as a project for Udacity, by Bruce Seymour.  
 
 ##### Loading Instructions
-A hosted version of the page is available at https://ohmslawct.github.io/restaurant/. To load locally:
+To load locally:
 * download the repository
 * open a terminal
 * navigate to the repository root.
