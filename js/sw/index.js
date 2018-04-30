@@ -1,5 +1,8 @@
 console.log("Registering Service Worker");
 
+// Source Code Reference: Udcity wittr project
+
+
 var staticCacheName = 'restaruant-project383-static-v1';
 
 self.addEventListener('install', function(event) {
