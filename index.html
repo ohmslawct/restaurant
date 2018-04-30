@@ -1,87 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
   <link rel="stylesheet" href="css/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Restaurant Reviews</title>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 </head>
 
 <body>
-<div class="flex-box">
+  <div class="flex-box">
 
-  <header>
-    <nav>
-      <h1><a href="/">Restaurant Reviews</a></h1>
-    </nav>
-  </header>
-
-
-<main id="maincontent">
-    <section id="map-container">
-    <div id="map"></div>
-</section>
+    <header>
+      <nav>
+        <h1 tabindex="0"><a href="/">Restaurant Reviews</a></h1>
+      </nav>
+    </header>
 
 
+    <main id="maincontent" tabindex="-1">
+
+      <section id="map-container" tabindex="-1">
+        <div id="map" tabindex="-1" title="maps"></div>
+      </section>
 
 
 
-<div class="filter-options">
-
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+      <div class="filter-options">
+        <label for="neighborhoods-select">
+        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" tabindex="0">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
-          <option value="all">All Cuisines</option>
+</label>
+
+        <label for="cuisines-select">
+        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" tabindex="0">
+          ><option value="all">All Cuisines</option>
         </select>
+</label>
 
-</div>
-
-
-
-
-           <!-- <div class ="mycontainer"> main container -->
+      </div>
 
 
 
 
+      <!-- <div class ="mycontainer"> main container -->
 
 
 
-  </main>
+    </main>
 
 
-  <div class="restaurants-list">
+    <div class="restaurants-list">
+      <ul id="restaurants-list"></ul>
+    </div>
 
-        <ul id="restaurants-list"></ul>
 
+    <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
+    <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6TOoFFWLCE3EE4NQJdMz1FcgdCLaIAik&libraries=places&callback=initMap"></script>
+
+
+    <footer id="footer">
+      Copyright (c) 2018 - Restaurant Reviews - All Rights Reserved.
+    </footer>
+
+
+    <!-- </div>main container -->
   </div>
 
 
-  <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
-  <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
-
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6TOoFFWLCE3EE4NQJdMz1FcgdCLaIAik&libraries=places&callback=initMap"></script>
-
-
-
-
-
-
-
-
-  <footer id="footer">
-    Copyright (c) 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
-  </footer>
-
-
-
- <!-- </div>main container -->
-</div>
 </body>
 
 </html>

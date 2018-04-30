@@ -1,27 +1,4 @@
-
-
-
-function findStylesheetsInImportedDocs(doc, map) {
-    map = map || {};
-    // map = map || new Map();
-    Array.prototype.forEach.call(doc.querySelectorAll('link[rel=import]'), (e) => {
-        const importedDoc = e.import;
-        if (importedDoc && !map[importedDoc]) {
-            const styles = importedDoc.querySelectorAll('style,link[rel=stylesheet]');
-            if (styles.length) {
-                map[importedDoc.URL] = {
-                    doc: importedDoc,
-                    styles: styles
-                };
-                // map.set(importedDoc, styles);
-            }
-            findStylesheetsInImportedDocs(importedDoc, map)
-        }
-    });
-    return map;
-}
-console.log(findStylesheetsInImportedDocs(document));
-
+navigator.serviceWorker.register('js/sw/index.js');
 
 let restaurants,
   neighborhoods,
@@ -36,11 +13,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
 });
-
-
-
-
-
 
 /**
  * Fetch all neighborhoods and set their HTML.
@@ -106,10 +78,19 @@ window.initMap = () => {
     lng: -73.987501
   };
   self.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
+
     center: loc,
-    scrollwheel: false
+    disableDefaultUI: true,
+    draggable: false,
+    mapTypeControl: false,
+    navigationControl: false,
+    scrollwheel: false,
+    scaleControl: false,
+    streetViewControl: false,
+    zoom: 12
+
   });
+
   updateRestaurants();
 }
 
@@ -155,19 +136,15 @@ resetRestaurants = (restaurants) => {
  * Create all restaurants HTML and add them to the webpage.
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
-  console.log("Filling Restaurant");
+
   const ul = document.getElementById('restaurants-list');
   restaurants.forEach(restaurant => {
-   ul.append(createRestaurantHTML(restaurant));
+    ul.append(createRestaurantHTML(restaurant));
 
+    // const newDiv = document.createElement('div');
+    // newDiv.className = 'myRestaurantDiv';
 
-
-
-
-  // const newDiv = document.createElement('div');
-  // newDiv.className = 'myRestaurantDiv';
-
-//  const bruce = document.querySelector('#bruce');
+    //  const bruce = document.querySelector('#bruce');
   });
   addMarkersToMap();
 }
@@ -176,16 +153,11 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  * Create restaurant HTML.
  */
 createRestaurantHTML = (restaurant) => {
-
-
-
-  const li = document.createElement('div');
-
-  console.log(li);
+  const li = document.createElement('li');
 
   const image = document.createElement('img');
-  image.className = 'restaurant-img';
-  image.alt = restaurant.name;
+  image.className = 'restaurant-img-main';
+  image.alt = `Restaruant: ${restaurant.name}`;
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 
@@ -208,9 +180,6 @@ createRestaurantHTML = (restaurant) => {
 
   li.className = 'restaurant-box';
 
-  //$("li").wrap( "<div class='myRestaurantDiv'></div>" );
-
-
   return li;
 }
 
@@ -225,6 +194,10 @@ addMarkersToMap = (restaurants = self.restaurants) => {
       window.location.href = marker.url
     });
     self.markers.push(marker);
+
+    let myMapTweaks = document.querySelector('iframe');
+    console.log(myMapTweaks);
+    //  myMapTweaks.title = "Map";
+
   });
 }
-console.log("here");
