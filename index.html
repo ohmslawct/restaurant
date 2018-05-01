@@ -22,7 +22,7 @@
 
     <main id="maincontent" tabindex="-1">
 
-      <section id="map-container" tabindex="-1">
+      <section id="map-container" tabindex="-1" role="application">
         <div id="map" tabindex="-1" title="maps"></div>
       </section>
 
@@ -71,6 +71,15 @@
 
     <!-- </div>main container -->
   </div>
+
+
+  <script>
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker
+             .register('js/sw.js')
+             .then(function() { console.log("Service Worker Registered"); });
+  }
+  </script>
 
 
 </body>

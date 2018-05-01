@@ -1,4 +1,4 @@
-navigator.serviceWorker.register('js/sw/index.js');
+// navigator.serviceWorker.register('js/index.js');
 
 let restaurants,
   neighborhoods,
@@ -195,9 +195,9 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     });
     self.markers.push(marker);
 
-    let myMapTweaks = document.querySelector('iframe');
-    console.log(myMapTweaks);
-    //  myMapTweaks.title = "Map";
+    // let myMapTweaks = document.querySelector('iframe');
+    // console.log(myMapTweaks);
+    // //  myMapTweaks.title = "Map";
 
   });
 }
